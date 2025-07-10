@@ -1,0 +1,774 @@
+/* Basic Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    /* This should be the background for the entire page behind all content */
+    background-image: url('https://i.pinimg.com/736x/fb/79/a8/fb79a8935e5bf1fad3c0383a96d413a4.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center top;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* A standard blue for links */
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4 {
+    color: #000080; /* Navy Blue for headings */
+    margin-bottom: 15px;
+}
+
+h1 { font-size: 2.8em; }
+h2 { font-size: 2.2em; }
+h3 { font-size: 1.8em; }
+h4 { font-size: 1.4em; }
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Standard Blue */
+    color: #fff;
+    border: 2px solid #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker Blue on hover */
+    border-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #000080; /* Navy Blue */
+    border: 2px solid #000080;
+}
+
+.btn-secondary:hover {
+    background-color: #000080;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-login {
+    background-color: #ADD8E6; /* Light Blue */
+    color: #000080; /* Navy Blue */
+    border: 2px solid #ADD8E6;
+    padding: 8px 18px; /* Slightly smaller for navigation */
+}
+
+.btn-login:hover {
+    background-color: #87CEEB; /* Sky Blue */
+    border-color: #87CEEB;
+}
+
+/* Header */
+.main-header {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #4682B4; /* Steel Blue for Logo */
+    text-transform: uppercase;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.main-nav ul li a {
+    color: #333;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+.main-nav ul li a:hover {
+    color: #007bff;
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 600px; /* Adjust height as needed */
+    /* THIS IS THE RULE THAT WILL NOW TAKE EFFECT */
+    background-image: url('https://motormate-group.com/wp-content/uploads/2023/04/STARWATER-2.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    padding: 0 20px;
+    z-index: 1; /* Ensure content is above overlay */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 51, 102, 0.7); /* Slightly darker blue overlay */
+    z-index: -1; /* Place overlay behind content */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: #f0f8ff; /* Alice Blue for lighter text */
+}
+
+/* Intro Section (Homepage) */
+.intro-section {
+    padding: 80px 0;
+    text-align: center;
+background-color: #e0f2f7; /* Re-added: Light blue background */
+}
+
+.intro-section h2 {
+    margin-bottom: 50px;
+}
+
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    /* NEW: Ensure all flex items stretch to the height of the tallest one */
+    align-items: stretch;
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* NEW: Make this itself a flex container */
+    display: flex;
+    flex-direction: column; /* Stack children (img, h3, p) vertically */
+    align-items: center; /* Horizontally center content inside each box */
+    text-align: center; /* Ensure text itself is centered */
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.feature-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    color: #4682B4; /* Steel Blue */
+    margin-bottom: 10px;
+}
+
+/* NEW: Allow the paragraph to grow and take up remaining space */
+.feature-item p {
+    flex-grow: 1; /* This is key! It makes the paragraph fill vertical space */
+    /* You might want to adjust its margin-top if needed for spacing from H3 */
+}
+
+/* Call to Action Section */
+.call-to-action {
+    background-color: #194889;
+    color: #fff; /* Keep text white */
+    text-align: center;
+    padding: 80px 20px;
+    position: relative; 
+    z-index: 1; 
+}
+
+.cta-content h2 {
+    font-size: 2.8em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #000080; /* Navy Blue */
+    color: #f0f8ff; /* Alice Blue */
+    padding: 50px 0 20px;
+    font-size: 0.9em;
+}
+
+.main-footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-info, .footer-nav, .social-media {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-info h3, .footer-nav h4, .social-media h4 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-nav ul li {
+    margin-bottom: 10px;
+}
+
+.footer-nav a {
+    color: #f0f8ff;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #ADD8E6; /* Light Blue */
+}
+
+.social-media img {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    color: #fff;
+    /* Missing or removed background-color */
+}
+
+/* --- About Page Specific Styles --- */
+.about-hero {
+    height: 450px;
+}
+
+.story-section {
+    padding: 80px 0;
+}
+
+.story-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+
+.story-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.story-text h2 {
+    color: #4682B4;
+    margin-bottom: 20px;
+}
+
+.story-image {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.story-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.why-us-section {
+    background-color: #e0f2f7; /* Very light blue */
+    padding: 80px 0;
+    text-align: center;
+}
+
+.why-us-section h2 {
+    margin-bottom: 50px;
+}
+
+.difference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.difference-section { /* Use the specific class for this section */
+    padding: 80px 0; /* Keep padding for spacing */
+    text-align: center; /* Keep text centered */
+    background-color: #e0f2f7; /* Solid light blue background */
+}
+
+.difference-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.difference-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.difference-item img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+}
+
+.difference-item h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.team-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.team-section h2 {
+    margin-bottom: 50px;
+    color: #000080;
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.team-member {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    flex: 1;
+    min-width: 220px;
+    max-width: 280px;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #87CEEB; /* Sky Blue border */
+}
+
+.team-member h3 {
+    color: #4682B4;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-style: italic;
+    color: #666;
+}
+
+/* --- Products Page Specific Styles --- */.products-hero {
+
+    height: 450px;
+
+}.products-grid-section {
+
+    padding: 80px 0;
+
+    text-align: center;
+
+}.products-grid-section h2 {
+
+    margin-bottom: 50px;
+
+}.products-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+
+    justify-content: center;
+
+}.product-item {
+
+    background-color: #fff;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+
+    text-align: center; /* This ensures all text within the item is centered */
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center; /* This centers the flex items (like image, h3, p blocks) horizontally */
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}.product-item:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+
+}.product-item img {
+
+    max-width: 180px; /* Adjust size as needed */
+
+    height: auto;
+
+    margin-bottom: 20px;
+
+}.product-item h3 {
+
+    color: #4682B4;
+
+    margin-bottom: 10px; /* Keep a small margin for separation */
+
+}/* Styling for the product price */.product-item .product-price {
+
+    font-size: 1.2em; /* Make it a bit larger */
+
+    font-weight: 700; /* Make it bold */
+
+    color: #000080; /* Navy blue for price */
+
+    margin-bottom: 15px; /* Space between price and description */
+
+    /* NEW: Explicitly center the text content within the price paragraph */
+
+    text-align: center;
+
+}.product-item p { /* This refers to the description paragraph now */
+
+    color: #555;
+
+    font-size: 0.95em;
+
+    flex-grow: 1; /* Ensures descriptions push to the bottom */
+
+}.how-to-order-section {
+
+    background-color: #e0f2f7;
+
+    padding: 80px 0;
+
+    text-align: center;
+
+}
+
+/* --- Login Page Specific Styles --- */
+.login-page-main {
+    min-height: calc(100vh - 170px); /* Adjust based on header/footer height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.login-section {
+    position: relative;
+    width: 100%;
+    min-height: 500px; /* Ensure it's tall enough */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    z-index: 1;
+}
+
+.login-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 128, 0.7); /* Navy Blue overlay */
+    z-index: -1;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #000080;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+.login-container .btn-primary {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.1em;
+    padding: 14px;
+}
+
+.login-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.login-links a {
+    color: #007bff;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+.message {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.message.error {
+    color: #dc3545; /* Red for error messages */
+}
+
+.message.success {
+    color: #28a745; /* Green for success messages */
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (max-width: 992px) {
+    .main-header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1.1em;
+    }
+    .footer-info, .footer-nav, .social-media {
+        min-width: unset;
+        flex: 1 1 45%; /* Two columns on medium screens */
+    }
+    .story-content {
+        flex-direction: column;
+    }
+    .story-image {
+        order: -1; /* Image appears above text on smaller screens */
+    }
+    .team-member {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 500px;
+    }
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .intro-section, .story-section, .why-us-section,
+    .products-grid-section, .how-to-order-section, .team-section {
+        padding: 50px 0;
+    }
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.5em; }
+
+    .features-grid, .difference-grid, .products-grid, .order-steps {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .footer-info, .footer-nav, .social-media {
+        flex: 1 1 100%; /* Single column on small screens */
+        text-align: center;
+    }
+    .social-media {
+        display: flex;
+        justify-content: center;
+    }
+    .login-container {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header .container {
+        padding: 0 10px;
+    }
+    .logo a {
+        font-size: 1.8em;
+    }
+    .main-nav ul {
+        gap: 10px;
+    }
+    .main-nav ul li a {
+        font-size: 0.9em;
+    }
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+    .hero-content p {
+        font-size: 0.9em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .call-to-action .cta-content h2 {
+        font-size: 2em;
+    }
+    .feature-item, .difference-item, .product-item, .step-item, .team-member {
+        padding: 20px;
+    }
+    .team-member img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
